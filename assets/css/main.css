@@ -45,7 +45,7 @@ label.tbl-cell {
 label,
 button,
 .button {
-    font-size: 13px;
+    font-size: 15px;
 }
 
 input[type="submit"],
@@ -84,6 +84,12 @@ input[type="submit"]:active {
     background-color: dodgerblue;
     color: white;
     border-color: white;
+}
+
+.button.btn-danger {
+    background-color: white;
+    color: #ec5155;
+    border-color: #ec5155;
 }
 
 .button.btn-danger:hover {
