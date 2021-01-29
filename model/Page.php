@@ -8,6 +8,7 @@ class Page{
     private $footer;
 
     public function __construct($title){
+        //sadly php does not let you use getters and setters in the constructor
         $this->title = $title;
         $this->style = "";
         $this->js = "";

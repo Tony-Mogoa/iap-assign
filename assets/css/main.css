@@ -1,129 +1,132 @@
 html,
-body,
-:not(h1) {
-  font-size: 12px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+body {
+    font-family: "PT Sans", sans-serif;
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 .table {
-  display: table;
+    display: table;
 }
 .tbl-row {
-  display: table-row;
+    display: table-row;
 }
 .tbl-cell {
-  display: table-cell;
-  padding-right: 10px;
+    display: table-cell;
+    padding-right: 10px;
 }
 .submit-btn {
-  display: table;
-  margin: auto;
+    display: table;
+    margin: auto;
 }
 label.tbl-cell {
-  text-align: right;
+    text-align: right;
 }
 .textbox {
-  padding: 10px 3px 10px 3px;
-  border: 1px solid #d9d9d9;
-  border-radius: 3px;
-  font-size: 15px;
+    padding: 10px 3px 10px 3px;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    font-size: 15px;
 }
 .textbox:focus {
-  border: 2px solid dodgerblue;
-  outline: none !important;
+    border: 2px solid dodgerblue;
+    outline: none !important;
 }
 .center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+label,
+button {
+    font-size: 13px;
 }
 
 input[type="submit"],
 .button {
-  padding: 10px 50px;
-  color: dodgerblue;
-  background-color: white;
-  border-radius: 3px;
-  border: 1px solid dodgerblue;
+    padding: 10px 50px;
+    color: dodgerblue;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid dodgerblue;
 }
 
 input[type="submit"]:focus {
-  outline: none !important;
-  background-color: white;
-  border-color: dodgerblue;
-  color: dodgerblue;
+    outline: none !important;
+    background-color: white;
+    border-color: dodgerblue;
+    color: dodgerblue;
 }
 
 input[type="submit"]:active {
-  background-color: white;
-  border-color: dodgerblue;
-  color: dodgerblue;
+    background-color: white;
+    border-color: dodgerblue;
+    color: dodgerblue;
 }
 
 .button:focus {
-  outline: none !important;
+    outline: none !important;
 }
 
 .button:active {
-  background-color: white;
-  border-color: dodgerblue;
-  color: dodgerblue;
+    background-color: white;
+    border-color: dodgerblue;
+    color: dodgerblue;
 }
 
 .btn-primary:hover {
-  background-color: dodgerblue;
-  color: white;
-  border-color: white;
+    background-color: dodgerblue;
+    color: white;
+    border-color: white;
 }
 
 .button.btn-danger:hover {
-  background-color: #ec5155;
-  color: white;
-  border-color: #ec5155;
+    background-color: #ec5155;
+    color: white;
+    border-color: #ec5155;
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-area {
-  display: flex;
-  flex: 1;
-  height: 10%;
-  border: 1px solid #d9d9d9;
-  justify-content: flex-end;
-  padding: 3px;
+    display: flex;
+    flex: 1;
+    height: 10%;
+    border: 1px solid #d9d9d9;
+    justify-content: flex-end;
+    padding: 3px;
 }
 
 .profile-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  padding-top: 15%;
-  flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding-top: 15%;
+    flex-direction: column;
 }
 
 .profile-pic {
-  border-radius: 50%;
-  border: 1px solid #d9d9d9;
-  padding: 20px;
+    border-radius: 50%;
+    border: 1px solid #d9d9d9;
+    padding: 20px;
 }
 
 .username {
-  font-size: 15px;
-  font-weight: bold;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .title {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
 }

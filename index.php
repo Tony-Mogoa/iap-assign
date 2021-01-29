@@ -1,8 +1,9 @@
 <?php
 require_once("./model/Page.php");
 
-$page = new Page("Home");
+$page = new Page("Login");
 
-$page->set_body("<h1>First Render</h1>");
+$page->set_header(require_once("./views/nav.php"));
+$page->set_body(require_once("./views/password_reset.php"));
 $page->render();
 ?>

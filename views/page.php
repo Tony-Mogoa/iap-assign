@@ -9,6 +9,7 @@ return "<!DOCTYPE html>
       href='https://fonts.googleapis.com/css2?family=PT+Sans&display=swap'
       rel='stylesheet'
     />
+    <link rel='stylesheet' href='./assets/css/main.css'>
     <title>$this->title</title>
     $this->style 
     $this->js
