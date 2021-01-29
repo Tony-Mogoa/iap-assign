@@ -43,7 +43,8 @@ label.tbl-cell {
 }
 
 label,
-button {
+button,
+.button {
     font-size: 13px;
 }
 
