@@ -19,7 +19,7 @@ class Page{
 
     public function render(){
         //all paths should be relative to index.php
-        echo require_once("./views/page.php");
+        echo require_once("./views/page.view.php");
     }
 
     public function set_title($title){

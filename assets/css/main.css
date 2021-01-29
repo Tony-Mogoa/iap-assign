@@ -55,6 +55,7 @@ input[type="submit"],
     background-color: white;
     border-radius: 5px;
     border: 1px solid dodgerblue;
+    text-decoration: none;
 }
 
 input[type="submit"]:focus {
@@ -136,4 +137,8 @@ input[type="submit"]:active {
     display: flex;
     justify-content: center;
     margin-top: 100px;
+}
+
+.or {
+    text-align: center;
 }

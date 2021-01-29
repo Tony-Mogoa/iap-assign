@@ -23,5 +23,9 @@ return "
     <input class='submit-btn btn-primary' type='submit' value='Login' />
   </form>
 </div>
+<p class='or'>or</p>
+<div class='center'>
+  <a href='index.php?page=register' class='button btn-primary'>Sign up</a>
+</div>
 ";
 ?>
