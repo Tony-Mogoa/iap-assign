@@ -1,5 +1,5 @@
 <?php
-require_once("./model/Page.class.php");
+require_once("./models/Page.class.php");
 session_start();
 
 $page = new Page("Login");

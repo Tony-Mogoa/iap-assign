@@ -2,11 +2,11 @@
 return "
 <div class='title'><h1>Login</h1></div>
 <div class='center'>
-  <form method='post'>
+  <form method='post' action='index.php?page=login'>
     <div class='table'>
       <div class='tbl-row'>
         <label class='tbl-cell'>Email</label>
-        <input class='tbl-cell textbox' type='email' size='70' name='email' />
+        <input class='tbl-cell textbox' type='email' size='70' name='email' required/>
       </div>
       <br />
       <div class='tbl-row'>
@@ -16,6 +16,7 @@ return "
           type='password'
           size='70'
           name='password'
+          required
         />
       </div>
       <br />
