@@ -1,7 +1,8 @@
 <?php
 return "
 <div class='nav-area'>
-    <button class='button btn-danger'>Logout</button>
+    <a href='index.php?page=passwordreset' class='button btn-danger'>Change password</a>
+    <a href='index.php?page=logout' class='button btn-danger'>Logout</a>
 </div>
 ";
 ?>

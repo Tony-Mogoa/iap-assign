@@ -1,6 +1,6 @@
 html,
 body {
-    font-family: "PT Sans", sans-serif;
+    font-family: "PT Sans", "Ubuntu", sans-serif;
 }
 
 html,
@@ -42,10 +42,19 @@ label.tbl-cell {
     position: relative;
 }
 
+.f-1 {
+    flex: 1;
+}
+
+.lighter {
+    font-weight: lighter;
+}
+
 label,
 button,
 .button {
     font-size: 15px;
+    font-weight: bolder;
 }
 
 input[type="submit"],
@@ -113,6 +122,10 @@ input[type="submit"]:active {
     padding: 3px;
 }
 
+.nav-area * {
+    margin: 5px;
+}
+
 .profile-display {
     display: flex;
     justify-content: center;
@@ -139,6 +152,62 @@ input[type="submit"]:active {
     margin-top: 100px;
 }
 
+.title-reg {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
 .or {
     text-align: center;
+}
+
+.error {
+    color: #ec5155;
+    border-radius: 3px;
+    padding: 2px 5px;
+    /* border: 1px solid #ec5155; */
+    font-size: 13px;
+    display: block;
+    margin-top: 3px;
+}
+
+#forgot-password {
+    font-size: 12px;
+    text-decoration: none;
+    color: #ec5155;
+    border: 1px solid #fff;
+    padding: 2px 5px;
+}
+
+#forgot-password:hover {
+    border: 1px solid #ec5155;
+    border-radius: 3px;
+}
+
+.card {
+    padding: 30px;
+    width: 60%;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.text-primary {
+    color: dodgerblue;
+}
+
+.text-danger {
+    color: #ec5155;
+}
+
+.card.primary {
+    border: 1px solid dodgerblue;
+}
+
+.card.danger {
+    border: 1px solid #ec5155;
+}
+
+.bold {
+    font-weight: bolder;
 }

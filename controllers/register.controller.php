@@ -1,17 +1,31 @@
 <?php
-$name_error = "";
+require_once("./util/Validator.class.php");
+require_once("./models/User.class.php");
+require_once("./util/FileUploader.class.php");
+require_once("./util/ConnectionManager.class.php");
+
+//data vars
+$full_name;
+$email;
+$city;
+$password;
+
+// Error vars
+$name_error= "";
 $email_error = "";
 $password_error = "";
 $confirm_password_error = "";
 $city_error = "";
+$file_upload_error = "";
 $error_count = 0;
+
 if(isset($_POST['register'])){
     if(empty($_POST["full-name"])){
         $name_error = "Please enter your name.";
         $error_count++;
     } else{
-        $name = Validator::filterName($_POST["full-name"]);
-        if($name == FALSE){
+        $full_name = Validator::filterName($_POST["full-name"]);
+        if($full_name == FALSE){
             $name_error = "Please enter a valid name.";
             $error_count++;
         }
@@ -26,6 +40,20 @@ if(isset($_POST['register'])){
             $email_error = "Please enter a valid email address.";
             $error_count++;
         }
+        else{
+            //check if email already exists
+            $checkEmailSQL = "SELECT user_id FROM user WHERE user_email = ?";
+            $checkEmailArgs = array($email);
+            CONNECTION_MANAGER::create();
+            $checkEmailStmt = CONNECTION_MANAGER::$connection->prepare($checkEmailSQL);
+            $checkEmailStmt->execute($checkEmailArgs);
+            $row = $checkEmailStmt->fetch();
+            if($row != NULL){
+                $email_error = "Please use another email, this one's already been taken. Ouch!";
+                $error_count++;
+            }
+            CONNECTION_MANAGER::close();
+        }
     }
 
     if(empty($_POST["city"])){
@@ -37,6 +65,10 @@ if(isset($_POST['register'])){
             $city_error = "Please enter a valid city name.";
             $error_count++;
         }
+    }
+
+    if($_FILES['profile-pic']['size'] < 1){
+        $file_upload_error = "Please attach you profile photo";
     }
 
     if(empty($_POST["password"])){
@@ -53,6 +85,7 @@ if(isset($_POST['register'])){
                 if($confirmation_password != FALSE){
                     if($confirmation_password !== $password){
                         $confirm_password_error = "The passwords you entered don't match!";
+                        $password_error = "The passwords you entered don't match!";
                         $error_count++;
                     }
                 }else{
@@ -66,8 +99,21 @@ if(isset($_POST['register'])){
         }
     }
 
-    if($error_count > 0){
+    if($error_count < 1){
         // add user to database
+        $file_uploader = new FileUploader("profile-pic", "./uploads");
+        $upload_successful = $file_uploader->upload();
+        if($upload_successful){
+            CONNECTION_MANAGER::create();
+            $user = new User;
+            $user->init_user_without_id($full_name, $email, $city, $file_uploader->get_file_name());
+            $user->set_password($password);
+            $register_successful = $user->register(CONNECTION_MANAGER::$connection);
+            if($register_successful){
+                header("location: index.php?page=login");
+            }
+            CONNECTION_MANAGER::close();
+        }
     }    
 }
 return require_once("./views/register.view.php");
