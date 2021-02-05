@@ -82,7 +82,7 @@ return "
             </div>
             <br />
         </div>
-        <input class='btn-primary submit-btn' type='submit' value='Register' name='register' />
+        <input class='submit-btn btn-primary' type='submit' value='Register' name='register' />
     </form>
 </div>
 <p class='or'>or</p>
