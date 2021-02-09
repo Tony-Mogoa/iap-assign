@@ -219,3 +219,18 @@ input[type="submit"]:active {
 .bold {
   font-weight: bolder;
 }
+
+.progress-bar-container {
+  width: 100%;
+  height: 4px;
+  background-color: #cfd2db;
+  border-radius: 5px;
+  display: none;
+}
+
+.progress-bar-fill {
+  width: 90%;
+  height: 4px;
+  border-radius: 5px;
+  background-color: #346efe;
+}

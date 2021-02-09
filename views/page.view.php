@@ -1,4 +1,5 @@
 <?php
+$progress_bar = require_once("./views/progressbar.view.php");
 return "<!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -13,6 +14,7 @@ return "<!DOCTYPE html>
     $this->js
   </head>
   <body>
+    $progress_bar
     $this->header 
     $this->body 
     $this->footer

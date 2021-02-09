@@ -13,6 +13,8 @@ function loadPage(url, docFragmentId) {
 function sendLoginForm(formElement) {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = sendSuccess;
+  xhttp.addEventListener("progress", updateDownloadProgress);
+  xhttp.upload.addEventListener("progress", updateUploadProgress);
   xhttp.open("POST", formElement.action);
   xhttp.send(new FormData(formElement));
 }
@@ -33,6 +35,8 @@ function sendSuccess() {
 function sendPasswordResetForm(formElement) {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = passResetReqSuccess;
+  xhttp.addEventListener("progress", updateDownloadProgress);
+  xhttp.upload.addEventListener("progress", updateUploadProgress);
   xhttp.open("POST", formElement.action);
   xhttp.send(new FormData(formElement));
 }
@@ -64,13 +68,14 @@ function sendRegisterForm(formElement) {
   const file = files[0];
   formData.append("profile-pic", file, file.name);
   xhttp.onload = registerReqSuccess;
+  xhttp.addEventListener("progress", updateDownloadProgress);
+  xhttp.upload.addEventListener("progress", updateUploadProgress);
   xhttp.open("POST", formElement.action);
   xhttp.send(formData);
   //console.log()
 }
 
 function registerReqSuccess() {
-  console.log(this.responseText);
   if (this.status === 200) {
     if (this.responseText === "success") {
       document.location.href = "index.php";
@@ -87,5 +92,45 @@ function registerReqSuccess() {
         errorText.innerHTML = value;
       }
     }
+  }
+}
+
+function showProgressBar() {
+  const progressBar = document.getElementById("progress-bar");
+  progressBar.style.display = "block";
+}
+
+function hideProgressBar() {
+  const progressBar = document.getElementById("progress-bar");
+  progressBar.style.display = "none";
+}
+
+function updateProgressBar(progress) {
+  const progressBar = document.getElementById("progress-fill");
+  if (progress >= 100) {
+    setTimeout(function () {
+      hideProgressBar();
+    }, 2000);
+  }
+  progressBar.style.width = progress + "%";
+}
+
+function updateDownloadProgress(event) {
+  if (event.lengthComputable) {
+    var percentComplete = (event.loaded / event.total) * 50;
+    console.log(percentComplete + 50);
+    updateProgressBar(50 + percentComplete);
+  } else {
+    // Unable to compute progress information since the total size is unknown
+  }
+}
+
+function updateUploadProgress(event) {
+  showProgressBar();
+  if (event.lengthComputable) {
+    var percentComplete = (event.loaded / event.total) * 50;
+    updateProgressBar(percentComplete);
+  } else {
+    // Unable to compute progress information since the total size is unknown
   }
 }
