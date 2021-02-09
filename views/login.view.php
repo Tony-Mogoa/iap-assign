@@ -2,11 +2,11 @@
 return "
 <div class='title'><h1>Login</h1></div>
 <div class='center'>
-  <form method='post' action='index.php?page=login'>
+  <form method='post' action='./controllers/loginajax.controller.php' onsubmit='sendLoginForm(this); return false;'>
     <div class='table'>
       <div class='tbl-row'>
         <div class='tbl-cell'></div>
-        <span class='tbl-cell error'>$error</span>
+        <span class='tbl-cell error' id='error'>$error</span>
       </div>
       <br/>
       <div class='tbl-row'>

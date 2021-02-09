@@ -2,8 +2,13 @@
 return "
 <div class='title-reg'><h1>Create account</h1></div>
 <div class='center'>
-    <form method='post' enctype='multipart/form-data' action='index.php?page=register'>
+    <form method='post' enctype='multipart/form-data' action='./controllers/registerajax.controller.php' onsubmit='sendRegisterForm(this); return false;'>
         <div class='table'>
+            <div class='tbl-row'>
+                <div class='tbl-cell'></div>
+                <span class='tbl-cell error' id='register-error'></span>
+            </div>
+            <br/>
             <div class='tbl-row'>
                 <label class='tbl-cell'>Full name</label>
                 <input
@@ -15,7 +20,7 @@ return "
                     required
                 />
                 <br/>
-                <span class='error'>$name_error</span>
+                <span class='error' id='full-name'>$name_error</span>
             </div>
             <br />
             <div class='tbl-row'>
@@ -29,7 +34,7 @@ return "
                     required
                 />
                 <br/>
-                <span class='error'>$email_error</span>
+                <span class='error' id='email'>$email_error</span>
             </div>
             <br />
             <div class='tbl-row'>
@@ -43,7 +48,7 @@ return "
                     required
                 />
                 <br/>
-                <span class='error'>$password_error</span>
+                <span class='error' id='password'>$password_error</span>
             </div>
             <br />
             <div class='tbl-row'>
@@ -57,7 +62,7 @@ return "
                     required
                 />
                 <br/>
-                <span class='error'>$confirm_password_error</span>
+                <span class='error' id='confirm-password'>$confirm_password_error</span>
             </div>
             <br />
             <div class='tbl-row'>
@@ -71,14 +76,14 @@ return "
                     required
                 />
                 <br/>
-                <span class='error'>$city_error</span>
+                <span class='error' id='city'>$city_error</span>
             </div>
             <br />
             <div class='tbl-row'>
                 <label class='tbl-cell'>Attach profile photo</label>
-                <input class='tbl-cell' type='file' size='70' accept='.png,.jpg,.gif' name='profile-pic' required/>
+                <input class='tbl-cell' type='file' size='70' accept='.png,.jpg,.gif' name='profile-pic' id='profile-pic-url' required/>
                 <br/>
-                <span class='error'>$file_upload_error</span>
+                <span class='error' id='profile-pic'>$file_upload_error</span>
             </div>
             <br />
         </div>

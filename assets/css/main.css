@@ -1,5 +1,6 @@
 html,
-body {
+body,
+* {
   font-family: "PT Sans", "Ubuntu", sans-serif;
 }
 

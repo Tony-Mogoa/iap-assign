@@ -2,11 +2,11 @@
 return "
 <div class='title'><h1>Reset Password</h1></div>
 <div class='center'>
-  <form method='post' action='index.php?page=passwordreset'>
+  <form method='post' action='./controllers/passwordresetajax.controller.php' onsubmit='sendPasswordResetForm(this);return false;'>
     <div class='table'>
       <div class='tbl-row'>
         <div class='tbl-cell'></div>
-        <span class='tbl-cell error'>$error_while_changing</span>
+        <span class='tbl-cell error' id='pass_change_error'>$error_while_changing</span>
       </div>
       <div class='tbl-row'>
         <label class='tbl-cell'>Current password</label>
@@ -19,7 +19,7 @@ return "
           required
         />
         <br/>
-        <span class='error'>$error_old</span>
+        <span class='error' id='old_password'>$error_old</span>
       </div>
       <br />
       <div class='tbl-row'>
@@ -33,7 +33,7 @@ return "
           required
         />
         <br/>
-        <span class='error'>$error_new</span>
+        <span class='error' id='new_password'>$error_new</span>
       </div>
       <br />
       <div class='tbl-row'>
@@ -47,7 +47,7 @@ return "
           required
         />
         <br/>
-        <span class='error'>$error_confirm_new</span>
+        <span class='error' id='confirm_password'>$error_confirm_new</span>
       </div>
       <br />
     </div>
